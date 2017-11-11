@@ -22,7 +22,7 @@ $('[data-menu]').on('click', function () {
 })
 
 // 侧边栏分类管理
-$('.lt-aside .menu').on('click', 'a', function () {
+$('.lt-aside .menu').on('click', '[href="javascript:;"]', function () {
   var child = $(this).siblings();
   child.slideToggle();
 })
