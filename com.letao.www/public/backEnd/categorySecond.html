@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>后台管理系统-用户管理</title>
+  <!-- 引入bootstrap库 -->
+  <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+  <!-- 引入NProgress -->
+  <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
+  <!-- 引入表单验证插件的css -->
+  <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.min.css">
+  <!-- 引入当前页面的css -->
+  <link rel="stylesheet" href="./css/admin.css">
+</head>
+
+<body>
+  <!-- 侧边栏 -->
+  <aside class="lt-aside">
+    <!-- logo -->
+    <div class="brand">
+      <a href="./index.html">ITCAST</a>
+    </div>
+    <!-- 用户信息 -->
+    <div class="user">
+      <img src="./images/default.png">
+      <a href="javascript:;">超级管理员</a>
+    </div>
+    <!-- 侧边栏菜单 -->
+    <div class="menu">
+        <ul>
+          <li>
+            <a href="./userManage.html">
+              <i class="glyphicon glyphicon-user"></i> 用户管理
+            </a>
+          </li>
+          <li class="now">
+            <a href="javascript:;">
+              <i class="glyphicon glyphicon-list"></i> 分类管理
+            </a>
+            <div class="slider" style="display: block">
+              <a href="./categoryFirst.html">一级分类</a>
+              <a href="./categorySecond.html" class="active">二级分类</a>
+            </div>
+          </li>
+          <li>
+            <a href="javascript:;">
+              <i class="glyphicon glyphicon-tags"></i> 商品管理
+            </a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+  <section class="lt-section">
+    <!-- 导航 -->
+    <div class="nav">
+      <!-- 切换按钮 -->
+      <a data-menu href="javascript:;">
+        <i class="glyphicon glyphicon-align-justify"></i>
+      </a>
+      <!-- 退出登陆按钮 -->
+      <a data-logout href="#myModal" data-toggle="modal">
+        <i class="glyphicon glyphicon-log-out"></i>
+      </a>
+    </div>
+    <!-- 内容区域 -->
+    <div class="lt-content">
+      <div class="container-fluid">
+        <!-- 标题 -->
+        <ul class="title">
+          <li>
+            <a href="javascript:;">管理系统</a>
+          </li>
+          <li class="active">用户管理</li>
+        </ul>
+        <div class="ad_content">
+          <table class="table-hover" border="1">
+            <thead>
+              <tr>
+                <th width="10%">序号</th>
+                <th width="30%">一级分类名称</th>
+                <th width="30%">二级分类名称</th>
+                <th width="30%">二级分类LOGO</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <div class="page pull-right">
+            <ul class="pagination"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 添加分类模态框 -->
+  <div class="modal fade" id="first-modal" tabindex="-1">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">添加分类</h4>
+        </div>
+        <div class="modal-body">
+          <div class="dropdown">
+            <span>一级分类：</span>
+            <button class="btn btn-default" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              请选择
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dLabel">
+              <li>游泳馆</li>
+              <li>生活馆</li>
+            </ul>
+          </div>
+          <form>
+            <div class="form-group" style="margin-top: 20px;">
+              <label class="sr-only" for="brandName">二级分类</label>
+              <input type="text" class="form-control" name="brandName" id="brandName" placeholder="请输入二级分类">
+            </div>
+            <div class="form-group fileupload">
+              <a href="javascript:;" class="btn btn-default">上传图片</a>
+              <input type="file" name="pic1">
+            </div>
+            <div class="preview">
+              <img width="100" height="100" src="./images/none.png" alt="">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="button" id="save" class="btn btn-primary">确定</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 退出登录模态框 -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
+        </div>
+        <div class="modal-body">
+          <p>
+            <i class="glyphicon glyphicon-info-sign"></i> 您确定要退出后台管理系统吗？
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="button" class="btn btn-primary">确定</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 
+    模板引擎 
+
+      使用方法：
+
+        语法：原生语法<%%> 输出<%=%>
+          简写：{{}}
+
+        绑定数据：
+          template(模板的id,数据对象)
+  -->
+
+  <script type="text/template" id="second-template">
+    <% for(var i=0;i<rows.length;i++){%>
+      <tr class="text-center">
+        <td><%=(page-1)*size+i+1%></td>
+        <td><%=rows[i].categoryName%></td>
+        <td><%=rows[i].brandName%></td>
+        <td>
+          <img height="30" src="<%=rows[i].brandLogo%>" alt="">
+        </td>
+      </tr>
+    <%}%>
+  </script>
+
+  <!-- 引入jquery -->
+  <script src="./lib/jquery/jquery.min.js"></script>
+  <!-- 引入bootstrap的插件 -->
+  <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+  <!-- 引入模板引擎插件 -->
+  <script src="./lib/artTemplate/template-native.js"></script>
+  <!-- 引入表单验证的插件 -->
+  <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+  <!-- 引入分页插件 -->
+  <script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+  <!-- 引入进度条插件 -->
+  <script src="./lib/nprogress/nprogress.js"></script>
+  <!-- 引入admin.js文件 -->
+  <script src="./js/admin.js"></script>
+  <!-- 引入userManage.js文件 -->
+  <script src="./js/categorySecond.js"></script>
+</body>
+
+</html>

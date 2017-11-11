@@ -1,0 +1,179 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html,body {
+	width: 100%;
+	height: 100%;
+	font-family: 'Microsoft YaHei';
+}
+
+ul {
+	list-style: none;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+	text-decoration: none;
+}
+
+.lt-aside {
+	width: 180px;
+	height: 100%;
+	background-color: #222d32; 
+	position: absolute;
+}
+
+.lt-aside .brand {
+	width: 100%;
+	height: 50px;
+	background: #367fa9;
+}
+
+.lt-aside .brand a {
+	color: #fff;
+  display: block;
+  line-height: 50px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.lt-aside .user {
+	padding: 30px 20px;
+}
+
+.lt-aside .user img {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+
+.lt-aside .user a {
+	color: #fff;
+	font-size: 12px;
+}
+
+.lt-aside .menu li.now>a {
+	background-color: #1d1f21;
+	color: #fff;
+	border-left-color: #3c8dbc;
+}
+
+.lt-aside .menu a{
+	display: block;
+	height: 40px;
+	line-height: 40px;
+	padding-left: 30px;
+	color: #aaa;
+	border: 3px solid transparent;
+}
+
+.lt-aside .menu .slider {
+	display: none;
+}
+
+.lt-aside .menu .slider a.active {
+	color: #fff;
+}
+
+.lt-aside .menu .slider a {
+	height: 30px;
+	line-height: 30px;
+	padding-left: 50px;
+	font-size: 12px;
+}
+
+.lt-section {
+	width: 100%;
+	height: 100%;
+	padding-left: 180px;
+}
+
+.lt-section.toggle {
+	padding: 0;
+}
+
+.lt-section .nav {
+	height: 50px;
+	width: 100%;
+	background-color: #3c8dbc;
+	margin-bottom: 20px;
+}
+
+.lt-section .nav a {
+	color: #fff;
+	font-size: 16px;
+	margin-top: 14px; 
+}
+
+.lt-section .nav a:first-child {
+	float: left;
+	margin-left: 15px;
+}
+
+.lt-section .nav a:last-child {
+	float: right;
+	margin-right: 15px;
+}
+
+.lt-section .title {
+	padding: 8px 15px;
+	margin-bottom: 20px;
+	list-style: none;
+	background-color: #f5f5f5;
+	border-radius: 4px;
+}
+
+.lt-section .title li {
+	display: inline-block;
+}
+
+.lt-section .title li.active {
+	color: #777;
+}
+
+.lt-section .title li:last-child::before {
+	content: '/ ';
+	padding: 0px 5px;
+	color: #ccc;
+}
+
+.lt-section .lt-content {
+  width: 100%;
+}
+
+.lt-section table {
+	border: 1px solid #ddd;
+	width: 100%;
+}
+
+.lt-section table thead tr>th,
+.lt-section table tbody tr>td {
+	padding: 8px;
+	text-align: center;
+}
+
+.lt-section .lt-canvas .picTable {
+  float: left;
+  width: 45%;
+  height: 400px;
+}
+
+.lt-section .lt-canvas .picTable:last-child {
+  margin-left: 10%;
+}
+
+.modal-body p {
+	color: #a94442;
+}
+
+.bg_login {
+	background-color: #222d32;
+}
+.bg_login .container .mt_150 {
+	margin-top: 150px;
+}
