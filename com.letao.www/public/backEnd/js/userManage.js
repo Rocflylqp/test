@@ -6,15 +6,16 @@ $(function () {
       type: 'get',
       url: '/user/queryUser',
       data: {
+        // 参数不传默认为1
         page: pageNum || 1,
         // 每一页呈现的行数
         pageSize: 5
       },
       success: function (data) {
+        // 获取模板引擎
         var userManageList = template('userManage-template', data);
         // 把拿到的数据渲染到html中
         $('table tbody').html(userManageList);
-        console.log(data)
         // 分页
         $('.pagination').bootstrapPaginator({
           /*当前使用的是3版本的bootstrap*/
@@ -45,12 +46,14 @@ $(function () {
     // 获取自定义属性data-name
     var name = $(this).data('name');
     // 判断是否有禁用按钮的class属性
-    var isDelete = $(this).hasClass('btn-danger') ? 0 : 1;
+    var isDelete = $(this).hasClass('btn-danger') ? 1 : 0;
     // 根据得到isDelete值判断模态框的提示是禁用还是启用
     if (isDelete == 1) {
-      $('#manage-modal').find('.alert').html('<i class="glyphicon glyphicon-info-sign"></i> 您确定要启用'+ name +'吗？');
-    } else {
+      // 提示是否要禁止
       $('#manage-modal').find('.alert').html('<i class="glyphicon glyphicon-info-sign"></i> 您确定要禁止'+ name +'吗？');
+    } else {
+      // 提示是否要启用
+      $('#manage-modal').find('.alert').html('<i class="glyphicon glyphicon-info-sign"></i> 您确定要启用'+ name +'吗？');
     }
     // 点击模态框确定按钮
     $('#manage-modal').on('click', '.btn-primary', function () {
@@ -65,7 +68,7 @@ $(function () {
         success: function (data) {
           if (data.success == true) {
             // 隐藏模态框
-            $('#manage-model').modal('hide');
+            $('#manage-modal').modal('hide');
             // 调用ajax获取最新的数据
             getUserManageData();
           }

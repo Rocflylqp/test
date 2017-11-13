@@ -36,7 +36,9 @@ $('#logout-modal').on('click', '.btn-primary', function () {
     dataType: 'json',
     success: function (data) {
       if (data.success == true) {
+        // 退出登录遮罩层隐藏
         $('#logout-model').modal('hide');
+        // 设置定时器500毫秒后跳转
         setTimeout(function () {
           location.href = './login.html';
         },500)

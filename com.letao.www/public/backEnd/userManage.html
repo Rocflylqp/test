@@ -77,6 +77,7 @@
           <li class="active">用户管理</li>
         </ul>
         <div class="ad_content">
+          <!-- 列表 -->
           <table class="table-hover" border="1">
             <thead>
               <tr>
@@ -89,6 +90,7 @@
             </thead>
             <tbody></tbody>
           </table>
+          <!-- 分页 -->
           <div class="page pull-right">
             <ul class="pagination"></ul>
           </div>
@@ -131,9 +133,7 @@
           <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
         </div>
         <div class="modal-body">
-          <p class="alert">
-            <!-- <i class="glyphicon glyphicon-info-sign"></i> 您确定要退出后台管理系统吗？ -->
-          </p>
+          <p class="alert"></p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
@@ -156,14 +156,21 @@
   -->
 
   <script type="text/template" id="userManage-template">
+    <!-- 返回的是一个数组 遍历rows这个数组 -->
     <%for(var i = 0; i<rows.length;i++){%>
       <tr class="text-center">
+        <!-- 序号 -->
         <td><%=(page-1)*size+i+1%></td>
+        <!-- 用户名 -->
         <td><%=rows[i].username%></td>
+        <!-- 手机号 -->
         <td><%=rows[i].mobile%></td>
+        <!-- 根据isDelte的值判断 是正常还是禁用状态 -->
         <td><%=rows[i].isDelete==1?'禁用':'正常'%></td>
         <td>
+          <!-- 根据isDelete的值 来判断是创建哪种按钮 -->
           <%if(rows[i].isDelete == 1){%>
+            <!-- 把这一行数据的id 以及用户名信息添加到自定义属性data中 便于进行后续操作(禁用还是启用、提示信息) -->
             <a data-id="<%=rows[i].id%>" data-name="<%=rows[i].username%>"  href="#manage-modal" data-toggle="modal" class="btn btn-primary">启用</a>
           <%}else{%>
             <a data-id="<%=rows[i].id%>" data-name="<%=rows[i].username%>" href="#manage-modal" data-toggle="modal" class="btn btn-danger">禁用</a>

@@ -5,7 +5,9 @@ $(function () {
       type: 'get',
       url: '/category/queryTopCategoryPaging',
       data: {
+        // 参数不传默认为1
         page: pagenum || 1,
+        // 每页呈现的行数
         pageSize: 5
       },
       dataType: 'json',
@@ -57,26 +59,24 @@ $(function () {
   }).on('success.form.bv', function (e) {
     // Prevent form submission
     e.preventDefault();
-    // Get the form instance
   });
-
+  // 事件委托 确认按钮点击事
   $('#first-modal').on('click', '#save', function () {
-    var formData = $('first-form').serialize();
-    if ($('#categoryName').val() !== '') {
-      $.ajax({
-        type: 'post',
-        url: '/category/addTopCategory',
-        data: formData,
-        dataType: 'json',
-        sucess: function (data) {
-          if (data.success == true) {
-            // 模态框隐藏
-            $('#first-modal').modal('hide');
-            // 发送ajax请求获取最新的数据
-            getFirstData();
-          }
+    // form表单提交的数据 serialize() 可以让提交的数据呈现键值的格式 value=key&value1=key1
+    var formData = $('#first-form').serialize();
+    $.ajax({
+      type: 'post',
+      url: '/category/addTopCategory',
+      data: formData,
+      dataType: 'json',
+      success: function (data) {
+        if (data.success == true) {
+          // 模态框隐藏
+          $('#first-modal').modal('hide');
+          // 发送ajax请求获取最新的数据
+          getFirstData();
         }
-      })
-    }
+      }
+    })
   })
 })

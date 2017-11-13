@@ -177,3 +177,7 @@ a:active {
 .bg_login .container .mt_150 {
 	margin-top: 150px;
 }
+
+.page ul li a{
+	cursor: pointer;
+}
