@@ -85,3 +85,16 @@
   background-color: #fa672d;
   margin-left: 10px;
 }
+
+.detail-num span.border {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  text-align: center;
+  line-height: 20px;
+}
+
+.detail-num  {
+  margin-bottom: 20px;
+}

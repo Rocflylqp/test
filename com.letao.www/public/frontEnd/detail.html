@@ -46,57 +46,64 @@
     <!-- 模板区域 -->
   </div>
   <script type="text/template" id="detailTemplate">
-      <!-- 轮播图 -->
-      <div class="mui-slider">
-          <div class="mui-slider-group mui-slider-loop">
-            <div class="mui-slider-item mui-slider-item-duplicate">
-              <a href="#">
-                <img src="<%=pic[0].picName%>" alt="">
-              </a>
-            </div>
-            <div class="mui-slider-item">
-              <a href="#">
-                <img src="<%=pic[0].picName%>" alt="">
-              </a>
-            </div>
-    
-            <div class="mui-slider-item mui-slider-item-duplicate">
-              <a href="#">
-                <img src="<%=pic[0].picName%>" alt="">
-              </a>
-            </div>
-          </div>
-          <div class="mui-slider-indicator">
-            <div class="mui-indicator mui-active"></div>
-            <div class="mui-indicator"></div>
-          </div>
+    <!-- 轮播图 -->
+    <div class="mui-slider">
+      <div class="mui-slider-group mui-slider-loop">
+        <div class="mui-slider-item mui-slider-item-duplicate">
+          <a href="#">
+            <img src="<%=pic[0].picName%>" alt="">
+          </a>
         </div>
-        <!-- 商品名称 -->
-        <p class="detail-name"><%=proName%></p>
-        <!-- 价格 -->
-        <div class="detail-price">
-          <span>价格：</span>
-          <span class="new">￥<%=price%></span>
-          <span class="old">￥<%=oldPrice%></span>
+        <div class="mui-slider-item">
+          <a href="#">
+            <img src="<%=pic[0].picName%>" alt="">
+          </a>
         </div>
-        <!-- 尺码 -->
-        <div class="detail-size">
-          <span>尺码：</span>
+
+        <div class="mui-slider-item mui-slider-item-duplicate">
+          <a href="#">
+            <img src="<%=pic[0].picName%>" alt="">
+          </a>
         </div>
-        <!-- 数量 -->
-        <div class="detail-num">
-          <span>数量:</span>
-          <span>-</span>
-          <span>0</span>
-          <span>+</span>
-          <span>剩余20件</span>
-        </div>
-  
+      </div>
+      <div class="mui-slider-indicator">
+        <div class="mui-indicator mui-active"></div>
+        <div class="mui-indicator"></div>
+      </div>
+    </div>
+    <!-- 商品名称 -->
+    <p class="detail-name">
+      <%=proName%>
+    </p>
+    <!-- 价格 -->
+    <div class="detail-price">
+      <span>价格：</span>
+      <span class="new">￥
+        <%=price%>
+      </span>
+      <span class="old">￥
+        <%=oldPrice%>
+      </span>
+    </div>
+    <!-- 尺码 -->
+    <div class="detail-size">
+      <span>尺码：</span>
+    </div>
+    <!-- 数量 -->
+    <div class="detail-num">
+      <span>数量:</span>
+      <span class="minus border">-</span>
+      <span class="num">0</span>
+      <span class="plus border">+</span>
+      <span>剩余20件</span>
+    </div>
   </script>
   <script type="text/template" id="sizeTemplate">
     <%for (var i = minSize; i <= maxSize; i++) {%>
-      <span class="borderStyle"><%=i%></span>
-    <%}%>
+      <span class="borderStyle">
+        <%=i%>
+      </span>
+      <%}%>
   </script>
   <script src="./lib/mui/js/mui.min.js"></script>
   <!-- 这是zepto里的核心模块之一在开发的时候可以一一进行引入 但是当项目上线之后 就需要合并所有模块 -->

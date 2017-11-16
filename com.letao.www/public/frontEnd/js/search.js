@@ -11,7 +11,12 @@ $(function ($) {
     // 保存数据
     setHistoryData(inputVal);
     // 把输入的值拼接到url地址中 进行传参
-    location.href = './searchList.html?proName=' + inputVal;
+    // 判断输入的值是否为空 为空则不进行跳转
+    if (inputVal == '') {
+      return;
+    } else {
+      location.href = './searchList.html?proName=' + inputVal;
+    }
     // 显示页面数据
     showHistoryData();
   })
@@ -56,7 +61,10 @@ var setHistoryData = function (value) {
     }
   })
   // 把输入的值添加到获取的本地存储数组中
-  setLocal.push(value);
+  // 判断输入的值是否为空 为空则不保存
+  if (value != '') {
+    setLocal.push(value);
+  }
   // 再以json字符串的格式保存在本地存储中
   localStorage.setItem('ltHistory', JSON.stringify(setLocal));
 }
