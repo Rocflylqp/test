@@ -2,10 +2,12 @@
   background-color: #fff;
 }
 
+
 /* 商品详情滚动内容 */
+
 .detail-name {
   width: 100%;
-  font-size:18px;
+  font-size: 18px;
   background-color: #fff;
   color: #333;
   padding: 15px 5px;
@@ -33,9 +35,7 @@
   margin-left: 10px;
 }
 
-
 .detail-size {
-
   width: 100%;
   padding: 8px 5px;
   border-top: 1px solid #ccc;
@@ -43,7 +43,7 @@
   font-size: 14px;
 }
 
-.detail-size span:nth-last-child(-n+21) {
+.detail-size span.borderStyle {
   display: inline-block;
   width: 28px;
   height: 28px;
@@ -55,18 +55,13 @@
 }
 
 
-
-
-
-
-
-
 /* 底部工具栏 */
+
 .lt-toolbar {
- background-color: #e6e6e6;
+  background-color: #e6e6e6;
 }
 
-.lt-toolbar > a {
+.lt-toolbar>a {
   font-size: 20px;
   line-height: 50px;
   color: #000;
@@ -79,7 +74,7 @@
   text-align: center;
   line-height: 22px;
   color: #fff;
-  margin-top: calc((50px - 36px)/2) ;
+  margin-top: calc((50px - 36px)/2);
 }
 
 .lt-toolbar button.add-cart {
@@ -90,5 +85,3 @@
   background-color: #fa672d;
   margin-left: 10px;
 }
-
-
